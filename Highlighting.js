@@ -60,7 +60,7 @@ var x = document.createElement("SPAN");
 }
 
 function StartCallback() {
-sp.parentNode.style.backgroundColor =  "#7FFFD4"
+sp.parentNode.style.backgroundColor =  "#cefdce"
 sp.style.backgroundColor = " 	#ADD8E6"
 }
 function EndCallback() {
