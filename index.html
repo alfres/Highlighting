@@ -2,31 +2,25 @@
  <html>
  <head>
  <meta charset="UTF-8">
-
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <script src='testos.js'></script>
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
-<body ><br><div  style="  margin-left: 5%; margin-rigth: 5%; width:70%;  ">
-<select id='L1' onchange="lotext()" class='w3-select' style ='width:25%'>
+<body ><br><div  style="display: inline; margin-left: 5%; margin-rigth: 5%; width:70%;  ">
+<select id='L1' onchange="lotext()" class='w3-select' style ='width:18%'>
   <option value="Spanish Female" selected >Spanish Female</option>
   <option value="UK English Female">UK English Female</option>
   <option value="French Female">French Female</option>
   <option value="Serbo-Croatian Male">Euskera</option>
  </select>&nbsp;&nbsp;&nbsp;
- <button id="bset"  style="position:absolute;  width:100px; height:30px;" onclick="load_read(cositas.textContent)" >speak</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can paste your own text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button id="bcode"  style="position:absolute;  width:100px; height:30px;" onclick="window.location.href = 'https://github.com/alfres/Highlighting'"; >view code</button>
+ <button id="bset" autofocus style=" position:absolute;  width:100px; height:30px;" onclick="load_read(cositas.textContent)" >speak</button>
+<span style="white-space:pre;">                       You can paste your own text           </span>
+<a href="https://github.com/alfres/Highlighting">view code</a> 
 </div> <br><br>
 <div id="cositas" contenteditable="true" style=" border-style: groove;  margin-left: 5%; margin-rigth: 5%; width:70%;  "></div>
 <br><br>
 
  <script>
-var b , sp , it = 0 ,it2 = 0 , i = 0 , i2 = 0
-
 function lotext() {
 var le = L1.value.replace(/\s/g,'')
 var le = le.replace(/\-/g,'')

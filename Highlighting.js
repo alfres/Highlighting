@@ -1,3 +1,4 @@
+var b , sp , it = 0 ,it2 = 0 , i = 0 , i2 = 0
 function load_read(target) {
 it = 0 ; it2= 0
 var elementExists = document.getElementById("marco2");
@@ -24,14 +25,14 @@ textfeten.splice(v,1)
 if(textfeten[(textfeten.length -1)] == "") {textfeten.splice((textfeten.length -1),1)}
 
 
-textfeten.forEach(funcionload)
+textfeten.forEach(load_spans)
 
 funcioncanta(it, it2)
 
 
 }
 
- function funcionload(item, index) {
+ function load_spans(item, index) {
 
   		  var x = document.createElement("SPAN");
   		   b.appendChild(x);
@@ -46,8 +47,7 @@ textfeten2.splice(v,1)
 }  
    
  textfeten2.forEach( function (item) {
-
- 		  var x = document.createElement("SPAN");
+var x = document.createElement("SPAN");
  {var t = document.createTextNode(" " + item);} 
     x.appendChild(t);
     b.childNodes[i].appendChild(x);
@@ -66,16 +66,10 @@ sp.style.backgroundColor = " 	#ADD8E6"
 function EndCallback() {
 sp.style.backgroundColor = "transparent"
 it2 = it2 + 1
-
-if (it2 < b.childNodes[it].childNodes.length) {
-
-funcioncanta(it,it2)
-} else {
-b.childNodes[it].style.backgroundColor = "transparent"
+if (it2 < b.childNodes[it].childNodes.length) { funcioncanta(it,it2)
+} else { b.childNodes[it].style.backgroundColor = "transparent"
 it = it + 1
 it2 = 0
-
 if (it < b.childNodes.length) {funcioncanta(it,it2)}
 }
-	
-}
+	}
