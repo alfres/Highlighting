@@ -16,12 +16,12 @@
   <option value="UK English Female">UK English Female</option>
   <option value="French Female">French Female</option>
   <option value="Serbo-Croatian Male">Euskera</option>
- </select>
-&nbsp;&nbsp;&nbsp;<button id="bset"  style="position:absolute;  width:100px; height:30px;" onclick="fsettings()" >speak</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can paste your own text
+ </select>&nbsp;&nbsp;&nbsp;
+ <button id="bset"  style="position:absolute;  width:100px; height:30px;" onclick="load_read(cositas.textContent)" >speak</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can paste your own text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="bcode"  style="position:absolute;  width:100px; height:30px;" onclick="window.location.href = 'https://github.com/alfres/Highlighting'"; >view code</button>
 </div> <br><br>
-<div id="cositas" contenteditable="true" style=" border-style: groove;  margin-left: 5%; margin-rigth: 5%; width:70%;  ">Platero es pequeño, peludo, suave; tan blando por fuera, que se diría todo de algodón, que no lleva huesos. Sólo los espejos de azabache de sus ojos son duros cual dos escarabajos de cristal negro.
-Lo dejo suelto, y se va al prado, y acaricia tibiamente con su hocico, rozándolas apenas, las florecillas rosas, celestes y gualdas… Lo llamo dulcemente: ¿Platero? y viene a mí con un trotecillo alegre que parece que se ríe en no sé qué cascabeleo ideal…
-Come cuanto le doy. Le gustan las naranjas mandarinas, las uvas moscateles, todas de ámbar; los higos morados, con su cristalina gotita de miel…</div>
+<div id="cositas" contenteditable="true" style=" border-style: groove;  margin-left: 5%; margin-rigth: 5%; width:70%;  "></div>
 <br><br>
 
  <script>
@@ -33,90 +33,8 @@ var le = le.replace(/\-/g,'')
 cositas.textContent = window[le] 
 }
 
-
-function fsettings() {
-it = 0 ; it2= 0
-var elementExists = document.getElementById("marco2");
-if (elementExists != null) {elementExists.parentNode.removeChild(elementExists);}
-b = document.createElement('div');
-b.setAttribute('id', 'marco2');
-b.style.marginLeft = '5%'
-b.style.marginRight = '5%'
-b.style.width = '70%'
-b.style.backgroundColor = "LemonChiffon"
-
-document.body.appendChild(b);
-
- var patt1 = /([…|.|...])/g;
- 
-var textfeten  = cositas.textContent.split(patt1);
-for (var v =textfeten.length; v>0; v--) {
-if (textfeten[v] == "." || textfeten[v] == "..." || textfeten[v] == "…") {
-textfeten[v-1] = textfeten[v-1] + textfeten[v]
-textfeten.splice(v,1)
-}
-}
-
-if(textfeten[(textfeten.length -1)] == "") {textfeten.splice((textfeten.length -1),1)}
-
-
-textfeten.forEach(funcionload)
-
-funcioncanta(it, it2)
-
-
-}
-
- function funcionload(item, index) {
-
-  		  var x = document.createElement("SPAN");
-  		   b.appendChild(x);
-  		   i = index
-  		    var patt1 = /([,|;|:|\?])/g;
-    var textfeten2  = item.split(patt1);
-  for (var v=textfeten2.length; v>0; v--) {
-if (textfeten2[v] == "," || textfeten2[v] == ":" || textfeten2[v] == "?" || textfeten2[v] == ";") {
-textfeten2[v-1] = textfeten2[v-1] + textfeten2[v]
-textfeten2.splice(v,1)
-}
-}  
-   
- textfeten2.forEach( function (item) {
-
- 		  var x = document.createElement("SPAN");
- {var t = document.createTextNode(" " + item);} 
-    x.appendChild(t);
-    b.childNodes[i].appendChild(x);
- })
-
- }
-  function funcioncanta(it,it2) {
- sp = b.childNodes[it].childNodes[it2]
- responsiveVoice.speak(sp.childNodes[0].nodeValue, L1.value, {volume: 1, onstart: StartCallback, onend: EndCallback})	
-}
-
-function StartCallback() {
-sp.parentNode.style.backgroundColor =  "#7FFFD4"
-sp.style.backgroundColor = " 	#ADD8E6"
-}
-function EndCallback() {
-sp.style.backgroundColor = "transparent"
-it2 = it2 + 1
-
-if (it2 < b.childNodes[it].childNodes.length) {
-
-funcioncanta(it,it2)
-} else {
-b.childNodes[it].style.backgroundColor = "transparent"
-it = it + 1
-it2 = 0
-
-if (it < b.childNodes.length) {funcioncanta(it,it2)}
-}
-	
-}
-
+lotext()
 </script>
-
+<script src='Highlighting.js'></script>
 </body>
 </html>
